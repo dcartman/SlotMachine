@@ -1,0 +1,44 @@
+.slot-machine { 
+	position: relative; 
+	margin: 0 auto;
+	width: 462px;
+}
+
+.slot-machine .title {
+	font: 60px/68px 'MarketingScriptRegular', Arial, sans-serif;
+	text-align: center;
+}
+.wheel-housing { width: 462px; margin: 0; position:relative; }
+
+.trigger {
+	bottom: 80px;
+	position: absolute;
+	right: -68px;
+	width: auto !important;
+}
+.trigger .button {}
+
+.wheel {
+	border: 2px solid black;
+	box-shadow: inset 0px 10px 15px black, inset 0px -8px 15px black;
+	
+	float: left;
+	height: 200px;
+	overflow: hidden;
+	width: 150px;
+}
+
+.wheel-housing:after { clear:both; content: "."; display:block; height: 0; visibility: hidden; }
+
+.wheel .content {
+	border-top: 2px solid black;
+	height: 100%;
+	overflow: hidden;  
+	position: relative; 
+	width: 100%;
+	z-index: -1;
+}
+
+.wheel .content img {
+	height: 100%;
+}
