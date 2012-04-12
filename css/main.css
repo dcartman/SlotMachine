@@ -1,0 +1,19 @@
+* { position: relative; }
+html {
+	background: #999; /* for non-css3 browsers */
+	height: 100%;
+	margin: 0;
+	padding:0;
+
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D68B00', endColorstr='#FFD822'); /* for IE */
+	background: -webkit-gradient(linear, left top, right bottom, from(#D68B00), to(#FFD822)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #D68B00,  #FFD822); /* for firefox 3.6+ */ 	
+}
+
+#console {
+	position: absolute;
+	top:10px;
+	left:10px;
+	border:1px solid red;
+	width:25%;
+}
