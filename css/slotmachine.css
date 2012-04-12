@@ -1,38 +1,73 @@
 .slot-machine { 
 	position: relative; 
 	margin: 0 auto;
-	width: 462px;
+	width: 65%;
 }
 
 .slot-machine .title {
-	font: 60px/68px 'MarketingScriptRegular', Arial, sans-serif;
+	font: 350%/100% 'MarketingScriptRegular', Arial, sans-serif;
 	text-align: center;
 }
-.wheel-housing { width: 462px; margin: 0; position:relative; }
+.wheel-housing { width: 100%; margin: 0; position:relative; }
 
 .trigger {
-	bottom: 80px;
+	bottom:0;
+	padding: 0;
 	position: absolute;
-	right: -68px;
-	width: auto !important;
+	right: -20%;
+	width: 20%;
 }
-.trigger .button {}
+
+.trigger .button.squared{
+	-webkit-border-radius: 5%;
+	-moz-border-radius: 5%;
+	
+	border-radius: 5%;
+	font-size: 200%;
+	padding: 1.5em 0;
+	width: 100%;
+}
+
+.arrow_up {
+	border-width: 50px; 
+	border-style: solid;
+	border-bottom-color: -webkit-gradient(linear, left top, right bottom, from(#888), to(#575757));
+	border-bottom-color: -moz-linear-gradient(top,  #888,  #575757);
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-top-color: transparent;
+	height: 0;
+	width:0;
+	margin: 0 auto 10px;
+}
+
+.arrow_down {
+	border-width: 50px; 
+	border-style: solid;
+	border-top-color: -webkit-gradient(linear, left top, right bottom, from(#888), to(#575757));
+	border-top-color: -moz-linear-gradient(top,  #888,  #575757);
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	height: 0;
+	width:0;
+	margin: 10px auto 0;
+}
 
 .wheel {
 	border: 2px solid black;
 	box-shadow: inset 0px 10px 15px black, inset 0px -8px 15px black;
 	
 	float: left;
-	height: 200px;
 	overflow: hidden;
-	width: 150px;
+	width: 32%;
 }
 
 .wheel-housing:after { clear:both; content: "."; display:block; height: 0; visibility: hidden; }
 
 .wheel .content {
 	border-top: 2px solid black;
-	height: 100%;
+	height:100%;
 	overflow: hidden;  
 	position: relative; 
 	width: 100%;
@@ -40,5 +75,21 @@
 }
 
 .wheel .content img {
-	height: 100%;
+	position: absolute;
+	width: 300%;
+}
+
+.wheel:nth-of-type(1) .content img {
+	left:0;
+	top:0;
+}
+
+.wheel:nth-of-type(2) .content img {
+	left:-100%;
+	top:0;
+}
+
+.wheel:nth-of-type(3) .content img {
+	right:0;
+	top:0;
 }
