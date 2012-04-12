@@ -206,12 +206,15 @@ Wheel.prototype.slideUp = function(allContent) {
 
 /* Slide content down to the next full piece of content */
 Wheel.prototype.slideDown = function(allContent) {
-	var time = ( Math.abs(allContent[0].offsetTop) / 100 ),
-		el = allContent[0];
 	if(this.spinning == false) {
-		el = allContent[ allContent.length - 1 ];
+		var time = ( Math.abs(allContent[1].offsetTop) / 100 ),
+			el = allContent[ allContent.length - 1 ];
 		this.element.removeChild(el);
 		el.style.marginTop = "-"+ this.element.offsetHeight +"px";
+		this.element.insertBefore(el, allContent[0]);
+	} else {
+		var time = ( Math.abs(allContent[0].offsetTop) / 100 ),
+			el = allContent[0];
 	}
 	this.setTransition( el, time );
     el.style.marginTop = "0px";
@@ -225,6 +228,7 @@ Wheel.prototype.setTransition = function( ele, time, callback) {
 		me.spinning = false;
 		if( typeof(callback) == "function" ) callback.call(this, event);
 	});
+	return undefined;
 };
 
 /* Moves the top image to the bottom of the stack */

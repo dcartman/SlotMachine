@@ -11,10 +11,10 @@
 .wheel-housing { width: 100%; margin: 0; position:relative; }
 
 .trigger {
-	bottom:0;
 	padding: 0;
 	position: absolute;
 	right: -20%;
+	top: 0px;
 	width: 20%;
 }
 
@@ -29,6 +29,7 @@
 }
 
 .arrow_up {
+	background: none;
 	border-width: 50px; 
 	border-style: solid;
 	border-bottom-color: -webkit-gradient(linear, left top, right bottom, from(#888), to(#575757));
@@ -42,6 +43,7 @@
 }
 
 .arrow_down {
+	background: none;
 	border-width: 50px; 
 	border-style: solid;
 	border-top-color: -webkit-gradient(linear, left top, right bottom, from(#888), to(#575757));
@@ -52,6 +54,10 @@
 	height: 0;
 	width:0;
 	margin: 10px auto 0;
+}
+
+.arrow_up:hover, .arrow_down:hover {
+	background: none;
 }
 
 .wheel {
