@@ -1,0 +1,127 @@
+
+/* This CSS rule is applied to all div elements in the leafContainer div.
+   It styles and animates each leafDiv.
+*/
+.snowflakes > div.snowflake
+{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+
+    /* We use the following properties to apply the fade and drop animations to each leaf.
+       Each of these properties takes two values. These values respectively match a setting
+       for fade and drop.
+    */
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-direction: normal, normal;
+    -webkit-animation-timing-function: linear, ease-in;
+}
+
+/* This CSS rule is applied to all img elements directly inside div elements which are
+   directly inside the leafContainer div. In other words, it matches the 'img' elements
+   inside the leafDivs which are created in the createALeaf() function.
+*/
+.snowflakes > div.snowflake > .img {
+     position: absolute;
+     width: 100px;
+     height: 100px;
+
+    /* We use the following properties to adjust the clockwiseSpin or counterclockwiseSpinAndFlip
+       animations on each leaf.
+       The createALeaf function in the Leaves.js file determines whether a leaf has the
+       clockwiseSpin or counterclockwiseSpinAndFlip animation.
+    */
+     -webkit-animation-iteration-count: infinite;
+     -webkit-animation-direction: alternate;
+     -webkit-animation-timing-function: ease-in-out;
+     -webkit-transform-origin: 50% -100%;
+}
+
+.snowflakes > div.flake1 > .img {
+    background: -webkit-linear-gradient(top, #d2dfed 0%,#c8d7eb 26%,#bed0ea 51%,#a6c0e3 51%,#afc7e8 62%,#bad0ef 75%,#99b5db 88%,#799bc8 100%);
+    height:260px;
+    width:260px;
+    -webkit-mask-image: url('../../images/snowflakes/1.png');
+}
+
+.snowflakes > div.flake2 > .img {
+    background: -webkit-linear-gradient(top, #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%);
+    height:277px;
+    width:287px;
+    -webkit-mask-image: url('../../images/snowflakes/2.png');
+}
+
+.snowflakes > div.flake3 > .img {
+    background: -webkit-linear-gradient(top, #f6f8f9 0%,#e5ebee 50%,#d7dee3 51%,#f5f7f9 100%);
+    height:236px;
+    width:254px;
+    -webkit-mask-image: url('../../images/snowflakes/3.png');
+}
+
+.snowflakes > div.flake4 > .img {
+    background: -webkit-linear-gradient(top, #cedbe9 0%,#aac5de 17%,#6199c7 50%,#3a84c3 51%,#419ad6 59%,#4bb8f0 71%,#3a8bc2 84%,#26558b 100%);
+    height:279px;
+    width:270px;
+    -webkit-mask-image: url('../../images/snowflakes/4.png');
+}
+
+.snowflakes > div.flake5 > .img {
+    background: -webkit-linear-gradient(top, #e1ffff 0%,#e1ffff 7%,#e1ffff 12%,#fdffff 12%,#e6f8fd 30%,#c8eefb 54%,#bee4f8 75%,#b1d8f5 100%);
+    height:253px;
+    width:273px;
+    -webkit-mask-image: url('../../images/snowflakes/5.png');
+}
+
+.snowflakes > div.flake7 > .img {
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+    height:293px;
+    width:297px;
+    -webkit-mask-image: url('../../images/snowflakes/6.png');
+}
+
+.snowflakes > div.flake6 > .img {
+    background: -webkit-linear-gradient(top, #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%);
+    height:183px;
+    width:185px;
+    -webkit-mask-image: url('../../images/snowflakes/7.png');
+}
+
+
+/* Hides a leaf towards the very end of the animation */
+@-webkit-keyframes fade1
+{
+    /* Show a leaf while into or below 95 percent of the animation and hide it, otherwise */
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }
+    95%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+/* Makes a leaf fall from -300 to 600 pixels in the y-axis */
+@-webkit-keyframes drop
+{
+    /* Move a leaf to -300 pixels in the y-axis at the start of the animation */
+    0%   { -webkit-transform: translateX(0px) translateY(-50px); }
+    /* Move a leaf to 600 pixels in the y-axis at the end of the animation */
+    100% { -webkit-transform: translateX(0px) translateY(1000px); }
+}
+
+/* Rotates a leaf from -50 to 50 degrees in 2D space */
+@-webkit-keyframes clockwiseSpin
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(-90deg); }
+    /*  Rotate a leaf by 50 degrees in 2D space at the end of the animation */
+    100% { -webkit-transform: rotate(90deg); }
+}
+
+
+/* Flips a leaf and rotates it from 50 to -50 degrees in 2D space */
+@-webkit-keyframes counterclockwiseSpinAndFlip
+{
+    /* Flip a leaf and rotate it by 50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: scale(-1, 1) rotate(90deg); }
+    /* Flip a leaf and rotate it by -50 degrees in 2D space at the end of the animation */
+    100% { -webkit-transform: scale(-1, 1) rotate(-90deg); }
+}

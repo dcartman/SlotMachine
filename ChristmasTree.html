@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/Winter/christmastree.css"/>
+	<link rel="stylesheet" type="text/css" href="css/Winter/snowflakes.css"/>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/Field.js"></script>
+	<script type="text/javascript" src="js/Winter/snowflakes.js"></script>
+	<script type="text/javascript" src="js/Winter/christmastree.js"></script>
+	<script type="text/javascript">
+
+		function createSnowflakes(container) {
+			/* Fill the empty container with new leaves */
+			for (var i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
+				var snowflake = new Snowflake(container);
+				container.appendChild(snowflake.flake);
+			}
+		}
+
+		function createChristmasTrees(container) {
+			for( var i = 0; i < NUMBER_OF_CHRISTMASTREES; i++ )
+			{
+				var christmastree = new ChristmasTree(container);
+			}
+		}
+
+		function alignCenterTree(container) {
+			var tree = document.querySelector('.tree.center'),
+				width = container.offsetWidth,
+				treeWidth = tree.offsetWidth,
+				left = width/2 - treeWidth/2;
+
+			tree.style.left = left +"px";
+		}
+
+		window.onload = function() {
+			var container = document.getElementById('field');
+			alignCenterTree(container);
+			createChristmasTrees(container);
+			createSnowflakes(container);
+
+		}
+	</script>
+</head>
+<body>
+	<div id="decorations">
+	</div>
+	<div id="field" class="snowflakes">
+		<div class="tree center">
+			<div class="body"></div>
+			<div class="bottom"></div>
+			<div class="shadow"></div>
+			<div class="sbottom"></div>
+			<div class="stump"></div>
+		</div>
+	</div>
+	<div id="whitefield">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>
