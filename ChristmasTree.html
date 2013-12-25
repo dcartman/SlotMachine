@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/Winter/christmastree.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/snowflakes.css"/>
+	<link rel="stylesheet" type="text/css" href="css/Winter/snowman.css"/>
 	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/Field.js"></script>
 	<script type="text/javascript" src="js/Winter/snowflakes.js"></script>
@@ -26,9 +27,9 @@
 
 		function alignCenterTree(container) {
 			var tree = document.querySelector('.tree.center'),
-				width = container.offsetWidth,
-				treeWidth = tree.offsetWidth,
-				left = width/2 - treeWidth/2;
+			width = container.offsetWidth,
+			treeWidth = tree.offsetWidth,
+			left = width/2 - treeWidth/2;
 
 			tree.style.left = left +"px";
 		}
@@ -55,8 +56,21 @@
 		</div>
 	</div>
 	<div id="whitefield">
-		<div class="left"></div>
-		<div class="right"></div>
+		<div class="left-field"></div>
+		<div class="right-field"></div>
+		<div class="snowman">
+			<div class="bowler-hat"></div>
+			<div class="ball head">
+				<div class="left eye"></div>
+				<div class="right eye"></div>
+				<div class="nose"></div>
+				<div class="mouth"></div>
+			</div>
+			<div class="ball body">
+				<div class="buttons"></div>
+			</div>
+			<div class="ball bottom"></div>
+		</div>
 	</div>
 </body>
 </html>

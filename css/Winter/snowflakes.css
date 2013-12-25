@@ -17,20 +17,11 @@
     -webkit-animation-timing-function: linear, ease-in;
 }
 
-/* This CSS rule is applied to all img elements directly inside div elements which are
-   directly inside the leafContainer div. In other words, it matches the 'img' elements
-   inside the leafDivs which are created in the createALeaf() function.
-*/
 .snowflakes > div.snowflake > .img {
      position: absolute;
      width: 100px;
      height: 100px;
 
-    /* We use the following properties to adjust the clockwiseSpin or counterclockwiseSpinAndFlip
-       animations on each leaf.
-       The createALeaf function in the Leaves.js file determines whether a leaf has the
-       clockwiseSpin or counterclockwiseSpinAndFlip animation.
-    */
      -webkit-animation-iteration-count: infinite;
      -webkit-animation-direction: alternate;
      -webkit-animation-timing-function: ease-in-out;
