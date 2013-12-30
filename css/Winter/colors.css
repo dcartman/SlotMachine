@@ -1,0 +1,52 @@
+/* hat colors */
+.bowler-hat-black, .bowler-hat-black:after {
+	background:-webkit-linear-gradient(-45deg, #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%);
+}
+
+.fuschia-hat, .fuschia-hat:after {
+	background: -webkit-linear-gradient(top, #e570e7 0%,#c85ec7 47%,#a849a3 100%);
+}
+
+.pink-hat, .pink-hat:after {
+	background: -webkit-linear-gradient(-45deg, #ef017c 0%,#99386a 100%);
+}
+
+.blue-hat, .blue-hat:after {
+	background: -webkit-linear-gradient(top, #2c539e 0%,#2c539e 100%);
+}
+
+.pale-face{
+	background: -webkit-linear-gradient(-45deg, #f5e4d1 0%, #f0e3d5 70%);
+}
+
+.blue-eye:after {
+	background: -webkit-linear-gradient(-45deg, #c5deea 0%,#8abbd7 31%,#066dab 100%);
+}
+
+.green-eye:after {
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 25%,rgba(0,0,0,0) 50%,rgba(0,0,0,0) 100%) center center, -webkit-linear-gradient(-45deg, #B2D374 0%,#B6D387 50%,#98C155 75%,#93BA4A 100%) left top;
+}
+
+.green2-eye:after {
+	background: -webkit-linear-gradient(-45deg, #b4e391 0%,#61c419 50%,#b4e391 100%);
+}
+
+.tan-puffy-coat {
+	background: -webkit-linear-gradient(top, #c19e67 0%,#b68d4c 30%,#1b1b1b 30%, #1b1b1b 30.5%, #f3e2c7 31%,#b68d4c 55%, #b68d4c 60%,#1b1b1b 60%, #1b1b1b 60.5%,#f3e2c7 61%,#b68d4c 85%, #b68d4c 90%,#1b1b1b 90%, #1b1b1b 90.5%, #b68d4c 91%, #b68d4c 100%);
+}
+
+.pink-puffy-coat {
+	background: -webkit-linear-gradient(top, #ff7cd8 0%,#fd89d7 31%,#fba6e1 32%, #fba6e1 72%,#fcecfc 100%);
+}
+
+.fuchsia-puffy-coat {
+	background: -webkit-linear-gradient(top, #c146a1 0%, #c146a1 18%,#a80077 20%,#a80077 40%,#c146a1 42%, #c146a1 65%,#cb60b3 100%);
+}
+
+.blue-puffy-coat {
+	background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%);
+}
+
+.blue-jean {
+	background: -webkit-linear-gradient(top, #23538a 0%,#23538a 80%,#a7cfdf 80%,#23538a 82%, #23538a 90%, #a7cfdf 90%, #23538a 92%, #23538a 95%, #a7cfdf 97%, #23538a 99% );
+}
