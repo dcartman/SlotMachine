@@ -1,7 +1,3 @@
-/* Define the number of leaves to be used in the animation */
-const NUMBER_OF_SNOWFLAKES = 80;
-
-
 function Snowflake(container) {
 	/* Start by creating a wrapper div, and an empty img element */
 	this.flake = document.createElement('div');

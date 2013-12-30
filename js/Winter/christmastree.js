@@ -1,5 +1,3 @@
-const NUMBER_OF_CHRISTMASTREES = 50;
-
 function ChristmasTree(container) {
 	this.tree = document.createElement('div');
 	var body = document.createElement('div'),

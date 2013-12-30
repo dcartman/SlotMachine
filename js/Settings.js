@@ -1,3 +1,7 @@
+var Settings = {
+
+};
+
 var Field = {
 	"width": function(treeWidth) {
 		var treeWidth = treeWidth || 0;
@@ -21,7 +25,7 @@ var Field = {
 	},
 	"addTree": function(index, tree) {
 		this.trees[index] = tree;
-		this.trees[index + this.rowCount()] = this.trees[index - this.rowCount()] = this.trees[index + 1] = this.trees[index - 1] = "BLOCKED";
+		this.trees[index + this.columnCount(tree.tree.offsetWidth)] = this.trees[index - this.columnCount(tree.tree.offsetWidth)] = this.trees[index + 1] = this.trees[index - 1] = "BLOCKED";
 	},
 	"trees": []
 };

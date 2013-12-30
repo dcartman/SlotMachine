@@ -50,7 +50,7 @@
 	z-index: 2;
 }
 
-.head .eye {
+.snowman .head .eye {
 	background:-webkit-linear-gradient(-45deg, #0e0e0e 40%,#7d7e7d 100%);
 	height:15px;
 	border-radius:15px;
@@ -59,15 +59,15 @@
 	width: 10px;
 }
 
-.head .left.eye {
+.snowman .head .left.eye {
 	left:30px;
 }
 
-.head .right.eye {
+.snowman .head .right.eye {
 	right:30px;
 }
 
-.head .nose {
+.snowman .head .nose {
 	background:-webkit-linear-gradient(-45deg, #ff7f04 0%,#ff7c00 49%,#ffa73d 84%,#ffb76b 100%);
 	height:15px;
 	border-bottom-right-radius:20px;
@@ -80,7 +80,7 @@
 	width:30px;
 }
 
-.head .mouth {
+.snowman .head .mouth {
 	border-bottom-right-radius: 60px 40px;
 	border-bottom-left-radius: 60px 40px;
 	border-bottom: 7px dotted black;
