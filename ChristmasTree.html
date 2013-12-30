@@ -19,6 +19,9 @@
 			for (var i = 0; i < Settings.NUMBEROFSNOWFLAKES; i++) {
 				var snowflake = new Snowflake(container);
 				container.appendChild(snowflake.flake);
+				snowflake.flake.addEventListener( 'click', function(event) {
+					Field.player.play();
+				}, false);
 			}
 		}
 
@@ -38,18 +41,46 @@
 			tree.style.left = left +"px";
 		}
 
+		function stopTheDanceParty() {
+			console.log( "== DC == Dance party is over" );
+			var people = document.querySelectorAll('.person'),
+				length = people.length;
+
+			for( var i=0; i<length; i++ ) {
+				var person = people[i];
+				person.removeClass('dance');
+			}
+		}
+
+		function startTheDanceParty() {
+			console.log( "== DC == Let's melt this snow mound" );
+			var people = document.querySelectorAll('.person'),
+				length = people.length;
+
+			for( var i=0; i<length; i++ ) {
+				var person = people[i];
+				person.addClass('dance');
+			}
+		}
+
 		window.onload = function() {
 			var container = document.getElementById('field');
+
+			Field.player = new Audio('media/WinterWonderland.m4a');
+			Field.player.addEventListener( 'play', startTheDanceParty, false );
+			Field.player.addEventListener( 'ended', stopTheDanceParty, false );
+
 			alignCenterTree(container);
 			createChristmasTrees(container);
 			createSnowflakes(container);
-
 		}
+
 	</script>
 </head>
 <body>
 	<div id="decorations">
 	</div>
+	<audio id="player" src="media/WinterWonderland.m4a" ></audio>
 	<div id="field" class="snowflakes">
 		<div class="tree center">
 			<div class="body"></div>

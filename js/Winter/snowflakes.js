@@ -13,6 +13,8 @@ function Snowflake(container) {
 	this.flake.appendChild(this.image);
 
 	this.flake.object = this;
+
+	this.flake.addEventListener( 'click', this.explode, false );
 }
 
 Snowflake.prototype = {
@@ -67,5 +69,9 @@ Snowflake.prototype = {
 		/* Figure out another random duration for the spin animation */
 		var spinDuration = DC.durationValue(DC.randomFloat(4, 8));
 		this.image.style.webkitAnimationDuration = spinDuration;
+	},
+
+	"explode": function explode(event) {
+		console.log("== DC == CLICKED THE SNOWFLAKE == ");
 	}
 }

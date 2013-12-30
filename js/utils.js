@@ -16,6 +16,17 @@ Element.prototype.removeClass = function(cls) {
 	return this;
 }
 
+Element.prototype.toggleClass = function(cls) {
+	var current = this.className.split(' ');
+	if( current.indexOf(cls) > -1 ) {
+		current.splice( current.indexOf(cls), 1 );
+	} else {
+		current.push( cls );
+	}
+	this.className = current.join(' ').trim();
+	return this;
+}
+
 Array.prototype.openpositions = function() {
 	var open = Array(),
 		length = this.length;

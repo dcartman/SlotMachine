@@ -2,6 +2,7 @@
 	box-sizing:border-box;
 	position: absolute;
 	-webkit-perspective: 100px;
+	-webkit-transform-origin: 50% 100%;
 	-webkit-transform: translateZ(20px) rotateY(0deg);
 }
 
@@ -189,6 +190,7 @@
 	border-bottom-left-radius:10% 100%;
 	border-bottom-right-radius:10% 100%;
 	left:-10%;
+	-webkit-transform-origin: 100% 0%;
 }
 
 .person .right-arm {
@@ -197,6 +199,7 @@
 	border-bottom-left-radius:10% 100%;
 	border-bottom-right-radius:10% 100%;
 	right:-10%;
+	-webkit-transform-origin: 0% 0%;
 }
 
 .person .right-arm:after, .person .left-arm:after {
@@ -215,9 +218,8 @@
 	height: 20%;
 	margin:auto;
 	position: absolute;
-	top:68%;
+	top:73.5%;
 	width:25%;
-	-webkit-transform-origin: 50% 0%;
 	z-index:0;
 }
 
@@ -227,6 +229,7 @@
 	border-bottom-left-radius:10% 100%;
 	border-bottom-right-radius:10% 100%;
 	left:27%;
+	-webkit-transform-origin: 100% 0%;
 	-webkit-transform: rotate(10deg);
 }
 
@@ -236,6 +239,7 @@
 	border-bottom-left-radius:10% 100%;
 	border-bottom-right-radius:10% 100%;
 	right:27%;
+	-webkit-transform-origin: 0% 0%;
 	-webkit-transform: rotate(-10deg);
 }
 
@@ -256,5 +260,100 @@
 
 .person .right-leg:after {
 	right:-5%;
+}
+
+/* Rotates a leaf from -50 to 50 degrees in 2D space */
+@-webkit-keyframes dance
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(0deg) translateZ(20px); }
+
+    25% { -webkit-transform: rotate(-45deg) translateZ(20px); }
+
+    50% { -webkit-transform: rotate(0deg) translateZ(20px); }
+
+    75% { -webkit-transform: rotate(45deg) translateZ(20px); }
+
+    100% { -webkit-transform: rotate(0deg) translateZ(20px); }
+}
+
+@-webkit-keyframes dance-left-arm
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(0deg); }
+
+    50% { -webkit-transform: rotate(100deg); }
+
+    100% { -webkit-transform: rotate(50deg); }
+}
+
+@-webkit-keyframes dance-right-arm
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(0deg); }
+
+    50% { -webkit-transform: rotate(-100deg); }
+
+    100% { -webkit-transform: rotate(-50deg); }
+}
+
+@-webkit-keyframes dance-left-leg
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(10deg); }
+
+    50% { -webkit-transform: rotate(0deg); }
+
+    100% { -webkit-transform: rotate(70deg); }
+}
+
+@-webkit-keyframes dance-right-leg
+{
+    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+    0%   { -webkit-transform: rotate(-10deg); }
+
+    50% { -webkit-transform: rotate(0deg); }
+
+    100% { -webkit-transform: rotate(-70deg); }
+}
+
+.person.dance  {
+	-webkit-animation-duration: 2s;
+	-webkit-animation-name: dance;
+	-webkit-animation-iteration-count: infinite;
+    /*-webkit-animation-direction: alternate;*/
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.person.dance .left-arm  {
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: dance-left-arm;
+	-webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.person.dance .right-arm {
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: dance-right-arm;
+	-webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.person.dance .left-leg  {
+	-webkit-animation-duration: .5s;
+	-webkit-animation-name: dance-left-leg;
+	-webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+.person.dance .right-leg {
+	-webkit-animation-duration: .5s;
+	-webkit-animation-name: dance-right-leg;
+	-webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
 }
 
