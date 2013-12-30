@@ -48,7 +48,7 @@ Snowflake.prototype = {
 		this.flake.style.webkitAnimationName = 'fade, drop';
 
 		/* Figure out a random duration for the fade and drop animations */
-		var fadeAndDropDuration = DC.durationValue(DC.randomFloat(5, 11));
+		var fadeAndDropDuration = DC.durationValue(DC.randomFloat(8, 14));
 
 		/* Set the -webkit-animation-duration property with these values */
 		this.flake.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
