@@ -55,4 +55,5 @@ ChristmasTree.prototype.setPosition = function() {
 	this.tree.style.left = left + "px";
 	this.tree.style.bottom = "10%";
 	this.tree.style.webkitTransform = "translateZ(" + top + "px)";
+	this.tree.style.zIndex = Math.floor(top);
 }
