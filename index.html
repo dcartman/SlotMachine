@@ -1,127 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>
-			Chump Nugget
-		</title>
-		<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = no"> 
-		<link rel="stylesheet" href="css/buttons.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="Marketing-Script/stylesheet.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="css/slotmachine.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8" />
-		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/slotmachine.js"></script>
-		<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
-	</head>
-	<body>
-		<div id="slot-machine" class="slot-machine">
-			<h2 class="title">ChumpNugget's Random Pictures</h2>
-			<div class="machine-body">
-				<div class="wheel-housing">
-					<div id="slot-machine_wheel_1" class="wheel">
-						<div class="content">
-							<img src="images/IMG_0055.jpg" alt="IMG 0079" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0064.jpg" alt="IMG 0080" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0079_1.jpg" alt="IMG 0081" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0080_1.jpg" alt="IMG 0082" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0084_1.jpg" alt="IMG 0083" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0087.jpg" alt="IMG 0084" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0092.jpg" alt="IMG 0095" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0093.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3064.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3101.jpg" alt="IMG 0097" />
-						</div>
-					</div>
-					<div id="slot-machine_wheel_2" class="wheel">
-						<div class="content">
-							<img src="images/IMG_0055.jpg" alt="IMG 0079" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0064.jpg" alt="IMG 0080" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0079_1.jpg" alt="IMG 0081" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0080_1.jpg" alt="IMG 0082" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0084_1.jpg" alt="IMG 0083" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0087.jpg" alt="IMG 0084" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0092.jpg" alt="IMG 0095" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0093.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3064.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3101.jpg" alt="IMG 0097" />
-						</div>
-					</div>
-					<div id="slot-machine_wheel_3" class="wheel">
-						<div class="content">
-							<img src="images/IMG_0055.jpg" alt="IMG 0079" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0064.jpg" alt="IMG 0080" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0079_1.jpg" alt="IMG 0081" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0080_1.jpg" alt="IMG 0082" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0084_1.jpg" alt="IMG 0083" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0087.jpg" alt="IMG 0084" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0092.jpg" alt="IMG 0095" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_0093.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3064.jpg" alt="IMG 0097" />
-						</div>
-						<div class="content">
-							<img src="images/IMG_3101.jpg" alt="IMG 0097" />
-						</div>
-					</div>
-				</div>
-				<div class="trigger">
-					<div class="blue slide_up arrow_up"></div>
-					<div class="button squared red spin" type="button">Spin</div>
-					<div class="blue slide_down arrow_down"></div>
-				</div>
-			</div>
-		</div>
-	</body>
+<head>
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/Scenes.js"></script>
+	<script type="text/javascript">
+
+		window.onload = function() {
+			// Load the navigation
+			// Setup the defaul scene
+			Scenes.switchToScene(selectedScene);
+		}
+
+	</script>
+</head>
+<body>
+	<header>
+		<nav id="main_menu">
+			<a name="Winter" class="active">Winter</a>
+		</nav>
+	</header>
+	<div id="scene"></div>
+	<div id="settings"></div>
+</body>
 </html>

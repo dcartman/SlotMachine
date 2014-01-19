@@ -79,7 +79,7 @@
 
 
 /* Hides a leaf towards the very end of the animation */
-@-webkit-keyframes fade1
+@-webkit-keyframes fade
 {
     /* Show a leaf while into or below 95 percent of the animation and hide it, otherwise */
     0%   { opacity: 0; }

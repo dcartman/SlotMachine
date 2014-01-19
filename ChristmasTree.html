@@ -1,14 +1,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<title>Chumpnugget: Winter</title>
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/christmastree.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/snowflakes.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/colors.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/person.css"/>
 	<link rel="stylesheet" type="text/css" href="css/Winter/snowman.css"/>
 	<script type="text/javascript" src="js/utils.js"></script>
-	<script type="text/javascript" src="js/Settings.js"></script>
-	<script type="text/javascript" src="js/Winter/WinterSettings.js"></script>
+	<script type="text/javascript" src="js/Scenes.js"></script>
+	<script type="text/javascript" src="js/FieldItem.js"></script>
+	<script type="text/javascript" src="js/Winter/WinterScene.js"></script>
 	<script type="text/javascript" src="js/Winter/snowflakes.js"></script>
 	<script type="text/javascript" src="js/Winter/christmastree.js"></script>
 	<script type="text/javascript" src="js/Winter/person.js"></script>
@@ -17,17 +21,34 @@
 
 		function createSnowflakes(container) {
 			/* Fill the empty container with new leaves */
-			for (var i = 0; i < Settings.NUMBEROFSNOWFLAKES; i++) {
+			for (var i = 0; i < Scenes.NUMBEROFSNOWFLAKES; i++) {
 				var snowflake = new Snowflake(container);
 				container.appendChild(snowflake.flake);
-				snowflake.flake.addEventListener( 'click', function(event) {
-					Field.player.play();
-				}, false);
+			}
+		}
+
+		function pauseSnowflakes() {
+			var snowflakes = document.querySelectorAll('.snowflake'),
+			length = snowflakes.length;
+
+			for (var i=0; i < length; i++) {
+				var snowflake = snowflakes[i];
+				snowflake.object.pause();
+			}
+		}
+
+		function playSnowflakes() {
+			var snowflakes = document.querySelectorAll('.snowflake'),
+			length = snowflakes.length;
+
+			for (var i=0; i < length; i++) {
+				var snowflake = snowflakes[i];
+				snowflake.object.play();
 			}
 		}
 
 		function createChristmasTrees(container) {
-			for( var i = 0; i < Settings.NUMBEROFCHRISTMASTREES; i++ )
+			for( var i = 0; i < Scenes.NUMBEROFCHRISTMASTREES; i++ )
 			{
 				var christmastree = new ChristmasTree(container);
 			}
@@ -44,7 +65,7 @@
 
 		function createPeople(people) {
 			var field = document.querySelector('.left-field');
-			people.forEach(function( ele ) {
+			people.forEach(function(ele) {
 				var person = new Person(ele);
 				field.appendChild(person.ele);
 			});
@@ -52,7 +73,10 @@
 
 		function stopTheDanceParty() {
 			var people = document.querySelectorAll('.person'),
-				length = people.length;
+			length = people.length,
+			snowman = document.querySelector('.snowman');
+
+			snowman.toggleClass('wave');
 
 			for( var i=0; i<length; i++ ) {
 				var person = people[i];
@@ -62,7 +86,10 @@
 
 		function startTheDanceParty() {
 			var people = document.querySelectorAll('.person'),
-				length = people.length;
+			length = people.length,
+			snowman = document.querySelector('.snowman');
+
+			snowman.toggleClass('wave');
 
 			for( var i=0; i<length; i++ ) {
 				var person = people[i];
@@ -70,26 +97,114 @@
 			}
 		}
 
-		window.onload = function() {
-			var container = document.getElementById('field');
+		function createWinterScene() {
+			
+		}
 
-			Field.player = new Audio('media/WinterWonderland.m4a');
-			Field.player.addEventListener( 'play', startTheDanceParty, false );
-			Field.player.addEventListener( 'ended', stopTheDanceParty, false );
+		window.onload = function() {
+			var container = document.getElementById('scene'),
+			settingsDiv = document.getElementById('settings');
+
+			settingsDiv.addEventListener( 'mouseup', function toggleSettings(event) { 
+				event.target.toggleClass('open');
+			}, false);
+
+			Scenes.scene.player = new Audio('media/WinterWonderland.m4a');
+			Scenes.scene.player.addEventListener( 'play', startTheDanceParty, false );
+			Scenes.scene.player.addEventListener( 'ended', stopTheDanceParty, false );
 
 			alignCenterTree(container);
 			createChristmasTrees(container);
 			createSnowflakes(container);
 			createPeople(people);
 
+			var snowman = document.querySelector('.snowman');
+
+			snowman.addEventListener( 'click', function(event) {
+				Scenes.scene.player.play();
+			}, false);
+
 		}
 
 	</script>
+	<style type="text/css">
+		ellipse {
+			fill: url(#svg_cloudcover);
+			filter: url(#svg_1_blur);
+		}
+		#cloudcover {
+			height:33%;
+			width:100%;
+			position:absolute;
+			top:0px;
+			-webkit-transform: translateZ(100px);
+		}
+		#thesun {
+			position:absolute;
+			right:0px;
+			top:0px;
+		}
+
+	</style>
 </head>
 <body>
-	<div id="decorations"></div>
 	<audio id="player" src="media/WinterWonderland.m4a" ></audio>
-	<div id="field" class="snowflakes">
+	<div id="scene" class="snowflakes">
+		<svg height="300" id="thesun" width="300" xmlns="http://www.w3.org/2000/svg">
+			<!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+			<defs>
+				<linearGradient id="svg_sun" spreadMethod="pad" x1="0" x2="1" y1="0" y2="1">
+					<stop offset="0" stop-color="#FFD822"/>
+					<stop offset="1" stop-color="#D68B00"/>
+				</linearGradient>
+			</defs>
+			<g>
+				<title>Sun</title>
+				<g>
+				<title>Sunrays</title>
+				<rect fill="url(#svg_sun)" height="69%" id="sun_flame_1" stroke="#000000" transform="rotate(67.5 150 150)" width="69%" x="15.5%" y="15.5%"/>
+				<rect fill="url(#svg_sun)" height="69%" id="sun_flame_8" stroke="#000000" transform="rotate(22.5 150 150)" width="69%" x="15.5%" y="15.5%"/>
+				</g>
+				<animateTransform attributeType="xml"
+                    attributeName="transform"
+                    type="scale"
+                    from="0 150 150"
+                    to="360 150 150"
+                    dur="20s"
+                    repeatCount="indefinite"/>
+				<circle cx="50%" cy="50%" fill="url(#svg_sun)" id="sun_ball" r="35%" stroke="#000000"/>
+			</g>
+		</svg>
+		<svg height="300" id="cloudcover" width="1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+  <defs>
+    <filter id="svg_1_blur">
+      <feGaussianBlur stdDeviation="0.2"/>
+    </filter>
+    <linearGradient id="svg_cloudcover" spreadMethod="pad" x1="0.2" x2="0.7" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f8f9"/>
+      <stop offset="0.7" stop-color="#e5ebee"/>
+      <stop offset="0.84" stop-color="#d7dee3"/>
+      <stop offset="1" stop-color="#f5f7f9"/>
+    </linearGradient>
+    <linearGradient id="svg_greyclouds" spreadMethod="pad" x1="0.2" x2="0.7" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f8f9"/>
+      <stop offset="0.4" stop-color="#e5ebee"/>
+      <stop offset="0.64" stop-color="#d7dee3"/>
+      <stop offset="1" stop-color="#f5f7f9"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <title>Layer 1</title>
+    <ellipse cx="16.7%" cy="139" id="svg_1" rx="17%" ry="110" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="68.79%" cy="84" id="svg_2" rx="14.01%" ry="110" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="4.78%" cy="66.5" id="svg_3" rx="11.91%" ry="91.5" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="21.19%" cy="83" id="svg_4" rx="15.33%" ry="102" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="51.66%" cy="67.5" id="svg_5" rx="16%" ry="106.5" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="33.35%" cy="109" id="svg_7" rx="14.7%" ry="116" stroke="#000000" stroke-width="0"/>
+    <ellipse cx="88.23%" cy="88.49999" id="svg_8" rx="16.94%" ry="124.49999" stroke="#000000" stroke-width="0"/>
+  </g>
+</svg>
 		<div class="tree center">
 			<div class="body"></div>
 			<div class="bottom"></div>
@@ -115,5 +230,6 @@
 			<div class="ball bottom"></div>
 		</div>
 	</div>
+	<div id="settings"></div>
 </body>
 </html>

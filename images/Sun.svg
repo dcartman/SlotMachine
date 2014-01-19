@@ -1,0 +1,19 @@
+<svg height="300" id="thesun" width="300" xmlns="http://www.w3.org/2000/svg">
+	<!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+	<defs>
+		<linearGradient id="svg_sun" spreadMethod="pad" x1="0" x2="1" y1="0" y2="1">
+			<stop offset="0" stop-color="#FFD822"/>
+			<stop offset="1" stop-color="#D68B00"/>
+		</linearGradient>
+	</defs>
+	<g>
+		<title>Sun</title>
+		<g>
+			<title>Sunrays</title>
+			<rect fill="url(#svg_sun)" height="69%" id="sun_flame_1" stroke="#000000" transform="rotate(67.5 150 150)" width="69%" x="15.5%" y="15.5%"/>
+			<rect fill="url(#svg_sun)" height="69%" id="sun_flame_8" stroke="#000000" transform="rotate(22.5 150 150)" width="69%" x="15.5%" y="15.5%"/>
+		</g>
+		<animateTransform attributeName="transform" attributeType="xml" dur="20s" from="0 150 150" repeatCount="indefinite" to="360 150 150" type="scale"/>
+		<circle cx="50%" cy="50%" fill="url(#svg_sun)" id="sun_ball" r="35%" stroke="#000000"/>
+	</g>
+</svg>

@@ -56,9 +56,19 @@ Snowflake.prototype = {
 		var leafDelay = DC.durationValue(DC.randomFloat(0, 5));
 		this.flake.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
 
-		var top = DC.randomInteger(-2,Field.rowCount()) * Field.rowSize();
+		var top = DC.randomInteger(-5,Scenes.scene.rowCount() * Scenes.scene.columnCount()) * Scenes.scene.rowSize()/3;
 		this.flake.style.webkitTransformOriginZ =  top +"px";
 
+	},
+
+	"pause": function pauseSnowflakes() {
+		this.flake.style.webkitAnimationPlayState = "paused";
+		this.flake.querySelector('img').style.webkitAnimationPlayState = "paused";
+	},
+
+	"play": function pauseSnowflakes() {
+		this.flake.style.webkitAnimationPlayState = "running";
+		this.flake.querySelector('img').style.webkitAnimationPlayState = "running";
 	},
 
 	"setImageStyles": function setImageStyles() {

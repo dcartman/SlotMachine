@@ -125,7 +125,7 @@
 	-webkit-transform: rotateZ(30deg);
 }
 
-.snowman:hover .body:before {
+.snowman.wave .body:before {
 	-webkit-animation-duration: 1s;
 	-webkit-animation-name: wave;
 	-webkit-animation-iteration-count: infinite;

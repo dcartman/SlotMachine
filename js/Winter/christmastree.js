@@ -29,31 +29,40 @@ function ChristmasTree(container) {
 	this.tree.object = this;
 }
 
+ChristmasTree.prototype = Object.create(FieldItem);
 
-ChristmasTree.prototype.setPosition = function() {
-	var columnCount = Field.columnCount(this.tree.offsetWidth),
-		rowCount = Field.rowCount(),
-		lastPosition = rowCount * columnCount - 1,
-		position, open;
+Object.extend(ChristmasTree, {
+	"setDimension": function setDimension() {
+		if (Scenes.scene.CHRISTMASTREE) {
+			this.tree.style.height = Scenes.scene.CHRISTMASTREE.height;
+			this.tree.style.width = Scenes.scene.CHRISTMASTREE.width;
+		}
+	},
+	"setPosition": function setPosition() {
+		var columnCount = Scenes.scene.columnCount(this.tree.offsetWidth),
+			rowCount = Scenes.scene.rowCount(),
+			lastPosition = rowCount * columnCount - 1,
+			position, open;
 
-	if (Field.trees[lastPosition] === undefined) {
-		position = lastPosition;
-	} else {
-		var open = Field.trees.openpositions();
-		index = Math.floor((Math.random() * open.length));
-		position = open[index];
-		if (open.length == 0) this.tree.style.display = "none";
+		if (Scenes.scene.items[lastPosition] === undefined) {
+			position = lastPosition;
+		} else {
+			var open = Scenes.scene.items.openpositions();
+			index = Math.floor((Math.random() * open.length));
+			position = open[index];
+			if (open.length == 0) this.tree.style.display = "none";
+		}
+
+		Scenes.scene.addItem(position, this);
+
+		var selectedRow = Math.floor(position / columnCount) * (0 - 1),
+			selectedColumn = position % columnCount,
+			top = selectedRow * Scenes.scene.rowSize(),
+			left = selectedColumn * this.tree.offsetWidth - (this.tree.offsetWidth / 2);
+
+		this.tree.style.left = left + "px";
+		this.tree.style.bottom = "10%";
+		this.tree.style.webkitTransform = "translateZ(" + top + "px)";
+		this.tree.style.zIndex = Math.floor(top);
 	}
-
-	Field.addTree(position, this);
-
-	var selectedRow = Math.floor(position / columnCount) * (0 - 1),
-		selectedColumn = position % columnCount,
-		top = selectedRow * Field.rowSize(),
-		left = selectedColumn * this.tree.offsetWidth - (this.tree.offsetWidth / 2);
-
-	this.tree.style.left = left + "px";
-	this.tree.style.bottom = "10%";
-	this.tree.style.webkitTransform = "translateZ(" + top + "px)";
-	this.tree.style.zIndex = Math.floor(top);
-}
+});

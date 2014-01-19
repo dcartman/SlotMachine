@@ -1,13 +1,29 @@
-* { position: relative; }
-html {
-	background: #999; /* for non-css3 browsers */
-	height: 100%;
-	margin: 0;
-	padding:0;
+* { 
+	position: relative; 
+	box-sizing:border-box;
+}
 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D68B00', endColorstr='#FFD822'); /* for IE */
-	background: -webkit-gradient(linear, left top, right bottom, from(#D68B00), to(#FFD822)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #D68B00,  #FFD822); /* for firefox 3.6+ */ 	
+html {
+	background: rgb(184,198,223); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(184,198,223,1) 0%, rgba(109,136,183,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(184,198,223,1)), color-stop(100%,rgba(109,136,183,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, rgba(184,198,223,1) 0%,rgba(109,136,183,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, rgba(184,198,223,1) 0%,rgba(109,136,183,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, rgba(184,198,223,1) 0%,rgba(109,136,183,1) 100%); /* IE10+ */
+	background: linear-gradient(135deg, rgba(184,198,223,1) 0%,rgba(109,136,183,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8c6df', endColorstr='#6d88b7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ 	
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0;
+	overflow:hidden;
+}
+
+.hidden {
+	visibility: hidden;
 }
 
 #console {
@@ -17,3 +33,55 @@ html {
 	border:1px solid red;
 	width:25%;
 }
+
+#settings {
+	background: -webkit-linear-gradient(45deg, rgba(45,45,45,0.7) 0%, rgba(45,45,45,0.7) 100%);
+	border: 2px solid rgba(45,45,45,0.9);
+	bottom: -200px; 
+	height:200px;
+	position: fixed;
+	width:100%;
+	z-index:1000;
+
+	transition: bottom 0.5s;
+	-webkit-transition: bottom 0.5s; /* Safari */
+	-webkit-transform: translateZ(50px);
+
+	/* Internet Explorer 10 */
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+}
+
+#settings.open {
+	bottom:0px;
+}
+
+#settings:before {
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	border-bottom: 20px solid rgba(45,45,45,0.6);
+	border-bottom-left-radius: 50% 100%;
+	border-bottom-right-radius: 50% 100%;
+	border-top-left-radius: 100% 100%;
+	border-top-right-radius: 100% 100%;
+	content:'';
+	height:0;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	top:-40px;
+	width:0;
+}
+
